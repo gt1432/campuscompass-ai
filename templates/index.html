@@ -3,501 +3,259 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CampusCompass AI | University Helpdesk</title>
-  <meta name="description" content="Your intelligent guide to university life. Powered by Google Gemini AI.">
-  <meta name="theme-color" content="#FAF8F5">
+  <title>Presidency University | AI Campus Helpdesk</title>
+  <meta name="description" content="Official AI Campus Helpdesk for Presidency University, Bengaluru. Instant verified guidance for academics, examinations, placements, and campus services.">
+
+  <!-- Google Fonts: Inter & JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;340;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap 5 & Bootstrap Icons -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+
+  <!-- Custom Stylesheet -->
   <link rel="stylesheet" href="/static/css/style.css">
 </head>
 <body>
-  <!-- SECTION A: NAVBAR -->
-  <header class="sticky-top">
-    <nav class="navbar navbar-expand-lg navbar-custom" id="mainNavbar">
-      <div class="container-xl">
-        <a class="navbar-brand d-flex align-items-center gap-2" href="#home">
-          <div class="brand-icon-wrapper"><i class="bi bi-compass-fill"></i></div>
-          <span class="brand-text">CampusCompass <span class="brand-ai">AI</span></span>
-        </a>
-        <button class="navbar-toggler custom-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navContent">
-          <i class="bi bi-list"></i>
-        </button>
-        <div class="collapse navbar-collapse" id="navContent">
-          <ul class="navbar-nav mx-auto mb-2 mb-lg-0 nav-pills-custom">
-            <li class="nav-item"><a class="nav-link active" href="#home">Home</a></li>
-            <li class="nav-item"><a class="nav-link" href="#features">Features</a></li>
-            <li class="nav-item"><a class="nav-link" href="#categories">Categories</a></li>
-            <li class="nav-item"><a class="nav-link" href="#how-it-works">How It Works</a></li>
-            <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-          </ul>
-          <div class="d-flex align-items-center gap-3">
-            <div class="status-indicator d-none d-md-flex align-items-center gap-2" id="navStatusIndicator">
-              <span class="pulse-dot"></span>
-              <span class="status-label" id="navStatusText">System Active</span>
-            </div>
-            <a href="#chat-demo" class="btn btn-pill btn-primary-custom" id="navChatBtn">
-              <span>Start Chat</span>
-              <i class="bi bi-arrow-right-short fs-5"></i>
-            </a>
-          </div>
+
+  <!-- ==================== NAVBAR (56px, #FFFFFF) ==================== -->
+  <nav class="navbar navbar-expand-lg navbar-custom sticky-top" id="mainNavbar">
+    <div class="container-xl d-flex align-items-center justify-content-between h-100">
+      <a class="brand-wrapper" href="#home">
+        <img src="/static/img/Presidency-university-logo.png" alt="Presidency University Logo" class="brand-logo-img">
+        <span class="mono-badge">AI HELPDESK</span>
+      </a>
+
+      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navContent">
+        <i class="bi bi-list fs-4 text-dark"></i>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navContent">
+        <ul class="navbar-nav mx-auto mb-2 mb-lg-0 gap-1">
+          <li class="nav-item"><a class="nav-link-custom" href="#home">Home</a></li>
+          <li class="nav-item"><a class="nav-link-custom" href="#prompts">Quick Test</a></li>
+          <li class="nav-item"><a class="nav-link-custom" href="#chat-workspace">Helpdesk Chat</a></li>
+          <li class="nav-item"><a class="nav-link-custom" href="#overview">Presidency Overview</a></li>
+        </ul>
+
+        <div class="d-flex align-items-center gap-2">
+          <a href="#chat-workspace" class="btn btn-pill btn-black">
+            <span>Start Chat</span>
+            <i class="bi bi-arrow-right-short fs-5"></i>
+          </a>
         </div>
       </div>
-    </nav>
-  </header>
+    </div>
+  </nav>
+
   <main>
-    <!-- SECTION B: HERO -->
+    <!-- ==================== HERO SECTION (Two-column, #FFFFFF canvas) ==================== -->
     <section class="hero-section" id="home">
       <div class="container-xl">
         <div class="row align-items-center g-5">
-          <div class="col-lg-6 hero-text-col">
-            <div class="hero-badge reveal">
-              <i class="bi bi-stars"></i>
-              <span>SMART UNIVERSITY EXPERIENCE | AI CAMPUS ASSISTANT</span>
-            </div>
-            <h1 class="hero-title reveal delay-1">
-              Your Campus.<br>
-              <span class="pastel-highlight">One Smart Assistant.</span>
-            </h1>
-            <p class="hero-description reveal delay-2">
-              Everything you need to navigate university life, from academics and examinations to placements and campus support, in one intelligent conversation.
+          <!-- Left Column -->
+          <div class="col-lg-6">
+            <div class="mono-eyebrow">TECHNOPIA 2.0 • CAMPUS ASSISTANT</div>
+            <h1 class="hero-headline">Ask anything about Presidency University.</h1>
+            <p class="hero-subtitle">
+              Instant, verified guidance for academics, attendance regulations, examinations, placements, and campus services powered by Google Gemini.
             </p>
-            <div class="hero-actions d-flex flex-wrap gap-3 reveal delay-3">
-              <a href="#chat-demo" class="btn btn-pill btn-primary-custom btn-lg">
-                <span>Start Conversation</span>
-                <i class="bi bi-arrow-right"></i>
+            <div class="d-flex flex-wrap gap-3">
+              <a href="#chat-workspace" class="btn btn-pill btn-black">
+                <span>Open Helpdesk →</span>
               </a>
-              <a href="#features" class="btn btn-pill btn-outline-custom btn-lg">
-                <span>Explore Features</span>
+              <a href="#prompts" class="btn btn-pill btn-white">
+                <span>Explore Test Prompts</span>
               </a>
             </div>
-            <div class="hero-trust-strip d-flex align-items-center gap-4 mt-5 reveal delay-4">
-              <div class="trust-item d-flex align-items-center gap-2">
-                <i class="bi bi-shield-check text-success fs-5"></i>
-                <span>Grounded Knowledge</span>
-              </div>
-              <div class="trust-item d-flex align-items-center gap-2">
-                <i class="bi bi-lightning-charge text-warning fs-5"></i>
-                <span>Instant Responses</span>
-              </div>
-              <div class="trust-item d-flex align-items-center gap-2">
-                <i class="bi bi-check-circle text-primary fs-5"></i>
-                <span>Zero Hallucinations</span>
-              </div>
-            </div>
           </div>
-          <div class="col-lg-6 hero-visual-col">
-            <div class="hero-card-container position-relative">
-              <div class="floating-badge floating-pill-1" id="heroStatusPill">
-                <span class="pulse-dot"></span>
-                <span class="badge-text" id="heroStatusText">AI Assistant Online</span>
-              </div>
-              <div class="floating-badge floating-pill-2">
-                <div class="icon-circle bg-mint"><i class="bi bi-compass text-mint-dark"></i></div>
-                <div class="badge-text-group">
-                  <span class="badge-title">Smart Campus</span>
-                  <span class="badge-subtitle">Guidance 24/7</span>
-                </div>
-              </div>
-              <div class="floating-badge floating-pill-3">
-                <div class="icon-circle bg-lavender"><i class="bi bi-grid-fill text-lavender-dark"></i></div>
-                <span class="badge-title">8 Help Categories</span>
-              </div>
-              <div class="mascot-card">
-                <div class="mascot-header">
-                  <div class="mascot-dot red"></div>
-                  <div class="mascot-dot yellow"></div>
-                  <div class="mascot-dot green"></div>
-                  <span class="mascot-title">CampusCompass AI Core</span>
-                </div>
-                <div class="mascot-body text-center p-4">
-                  <div class="mascot-svg-wrapper">
-                    <svg width="170" height="170" viewBox="0 0 200 200" fill="none" class="mascot-svg">
-                      <circle cx="100" cy="100" r="90" fill="#F3EEFF" stroke="#DDD6FE" stroke-width="4"/>
-                      <rect x="55" y="60" width="90" height="75" rx="24" fill="#0F172A" />
-                      <line x1="100" y1="60" x2="100" y2="40" stroke="#0F172A" stroke-width="4" stroke-linecap="round"/>
-                      <circle cx="100" cy="35" r="7" fill="#8B5CF6"/>
-                      <rect x="65" y="70" width="70" height="55" rx="16" fill="#1E293B"/>
-                      <circle cx="85" cy="95" r="9" fill="#10B981" class="eye-glow"/>
-                      <circle cx="115" cy="95" r="9" fill="#10B981" class="eye-glow"/>
-                      <path d="M 90 112 Q 100 120 110 112" stroke="#A7F3D0" stroke-width="3" stroke-linecap="round" fill="none"/>
-                      <circle cx="75" cy="105" r="4" fill="#F43F5E" opacity="0.6"/>
-                      <circle cx="125" cy="105" r="4" fill="#F43F5E" opacity="0.6"/>
-                      <path d="M 70 145 C 80 135, 120 135, 130 145 L 140 170 C 120 178, 80 178, 60 170 Z" fill="#DDD6FE"/>
-                    </svg>
-                  </div>
-                  <div class="mascot-speech-bubble mt-3">
-                    <p class="m-0">"Hi! Ask me about faculty advisors, exam timetables, hostel, or library rules!"</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- SECTION C: FEATURES STRIP -->
-    <section class="features-section py-5" id="features">
-      <div class="container-xl">
-        <div class="section-header text-center mb-5">
-          <span class="section-tag">SUPERIOR CAPABILITIES</span>
-          <h2 class="section-title">Engineered for University Excellence</h2>
-          <p class="section-subtitle">A modern intelligence layer connecting students with verified campus information.</p>
-        </div>
-        <div class="row g-4">
-          <div class="col-md-6 col-lg-3">
-            <div class="feature-card h-100">
-              <div class="feature-icon-box bg-lavender text-lavender-dark"><i class="bi bi-cpu-fill"></i></div>
-              <h3 class="feature-title">AI-Powered Assistance</h3>
-              <p class="feature-desc">Integrated with Google Gemini 3.8 Flash for ultra-fast, contextual, and deeply helpful student interactions.</p>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-3">
-            <div class="feature-card h-100">
-              <div class="feature-icon-box bg-mint text-mint-dark"><i class="bi bi-chat-quote-fill"></i></div>
-              <h3 class="feature-title">Natural Language</h3>
-              <p class="feature-desc">Understands casual, paraphrased questions and contextual multi-turn follow-ups naturally without keywords.</p>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-3">
-            <div class="feature-card h-100">
-              <div class="feature-icon-box bg-soft-blue text-soft-blue-dark"><i class="bi bi-shield-check"></i></div>
-              <h3 class="feature-title">Campus Information</h3>
-              <p class="feature-desc">Firmly grounded in verified university regulations. Explicitly discloses when exact dates or fees are unavailable.</p>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-3">
-            <div class="feature-card h-100">
-              <div class="feature-icon-box bg-lime text-lime-dark"><i class="bi bi-clock-history"></i></div>
-              <h3 class="feature-title">Smart Conversational Support</h3>
-              <p class="feature-desc">Available 24 hours a day, 7 days a week, helping students resolve questions across 8 vital campus domains instantly.</p>
+
+          <!-- Right Column (Crisp framed image container, 16/10 aspect ratio) -->
+          <div class="col-lg-6">
+            <div class="hero-image-frame">
+              <img src="/static/img/presidency login page image.jpg" alt="Presidency University Campus Portal" class="hero-img">
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- SECTION D: HELP CATEGORIES -->
-    <section class="categories-section py-5" id="categories">
+    <!-- ==================== LILAC COLOR-BLOCK (#E4D4FF) FOR QUICK-TEST PROMPTS ==================== -->
+    <section class="quicktest-section" id="prompts">
       <div class="container-xl">
-        <div class="section-header text-center mb-5">
-          <span class="section-tag">COMPREHENSIVE KNOWLEDGE BASE</span>
-          <h2 class="section-title">Everything Campus. One Place.</h2>
-          <p class="section-subtitle">Click any category to ask CampusCompass AI with one touch.</p>
+        <div class="text-center mb-4">
+          <span class="quicktest-badge">ONE-CLICK TEST SUITE</span>
+          <h2 class="quicktest-title">Verified Quick-Test Prompts</h2>
+          <p class="text-dark m-0" style="font-weight: 500;">Click any prompt to trigger an immediate grounded query in the helpdesk:</p>
         </div>
-        <div class="row g-4" id="categoryCardsGrid">
-          <div class="col-md-6 col-lg-3">
-            <div class="category-card card-lavender" data-query="Whom should I contact for academic problems?">
-              <div class="category-header d-flex justify-content-between align-items-center">
-                <div class="category-icon-box"><i class="bi bi-mortarboard-fill"></i></div>
-                <span class="category-badge">01</span>
-              </div>
-              <h4 class="category-title">Academics</h4>
-              <p class="category-desc">Faculty advisor guidance, course assistance, and academic regulations.</p>
-              <div class="category-action"><span>Ask about Academics</span><i class="bi bi-arrow-right"></i></div>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-3">
-            <div class="category-card card-mint" data-query="What is the attendance requirement?">
-              <div class="category-header d-flex justify-content-between align-items-center">
-                <div class="category-icon-box"><i class="bi bi-calendar-check-fill"></i></div>
-                <span class="category-badge">02</span>
-              </div>
-              <h4 class="category-title">Attendance</h4>
-              <p class="category-desc">Minimum attendance requirements and regulations prescribed by the university.</p>
-              <div class="category-action"><span>Ask about Attendance</span><i class="bi bi-arrow-right"></i></div>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-3">
-            <div class="category-card card-soft-blue" data-query="Where can I find the examination timetable?">
-              <div class="category-header d-flex justify-content-between align-items-center">
-                <div class="category-icon-box"><i class="bi bi-journal-text"></i></div>
-                <span class="category-badge">03</span>
-              </div>
-              <h4 class="category-title">Examinations</h4>
-              <p class="category-desc">Timetables, schedule notifications, and official publication channels.</p>
-              <div class="category-action"><span>Ask about Examinations</span><i class="bi bi-arrow-right"></i></div>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-3">
-            <div class="category-card card-lime" data-query="Whom should I contact for placement training?">
-              <div class="category-header d-flex justify-content-between align-items-center">
-                <div class="category-icon-box"><i class="bi bi-briefcase-fill"></i></div>
-                <span class="category-badge">04</span>
-              </div>
-              <h4 class="category-title">Placements</h4>
-              <p class="category-desc">Placement Department contacts, training sessions, and campus drives.</p>
-              <div class="category-action"><span>Ask about Placements</span><i class="bi bi-arrow-right"></i></div>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-3">
-            <div class="category-card card-amber" data-query="What are the library timings?">
-              <div class="category-header d-flex justify-content-between align-items-center">
-                <div class="category-icon-box"><i class="bi bi-book-half"></i></div>
-                <span class="category-badge">05</span>
-              </div>
-              <h4 class="category-title">Library</h4>
-              <p class="category-desc">Library resource access, borrowing rules, and library regulations.</p>
-              <div class="category-action"><span>Ask about Library</span><i class="bi bi-arrow-right"></i></div>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-3">
-            <div class="category-card card-coral" data-query="How can I raise a hostel complaint?">
-              <div class="category-header d-flex justify-content-between align-items-center">
-                <div class="category-icon-box"><i class="bi bi-building-fill-check"></i></div>
-                <span class="category-badge">06</span>
-              </div>
-              <h4 class="category-title">Hostel</h4>
-              <p class="category-desc">Hostel Administration complaints, room support, and residential welfare.</p>
-              <div class="category-action"><span>Ask about Hostel</span><i class="bi bi-arrow-right"></i></div>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-3">
-            <div class="category-card card-soft-pink" data-query="How do I get my student certificates?">
-              <div class="category-header d-flex justify-content-between align-items-center">
-                <div class="category-icon-box"><i class="bi bi-folder2-open"></i></div>
-                <span class="category-badge">07</span>
-              </div>
-              <h4 class="category-title">Administration</h4>
-              <p class="category-desc">Official certificates, student records, transcripts, and document requests.</p>
-              <div class="category-action"><span>Ask about Administration</span><i class="bi bi-arrow-right"></i></div>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-3">
-            <div class="category-card card-teal" data-query="Where are university event announcements posted?">
-              <div class="category-header d-flex justify-content-between align-items-center">
-                <div class="category-icon-box"><i class="bi bi-megaphone-fill"></i></div>
-                <span class="category-badge">08</span>
-              </div>
-              <h4 class="category-title">Events</h4>
-              <p class="category-desc">University event announcements, fests, and official communication channels.</p>
-              <div class="category-action"><span>Ask about Events</span><i class="bi bi-arrow-right"></i></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- SECTION E: HOW IT WORKS -->
-    <section class="how-it-works-section py-5" id="how-it-works">
-      <div class="container-xl">
-        <div class="section-header text-center mb-5">
-          <span class="section-tag">SEAMLESS FLOW</span>
-          <h2 class="section-title">How CampusCompass AI Works</h2>
-          <p class="section-subtitle">Three intelligent steps between question and verified answer.</p>
-        </div>
-        <div class="row g-4 align-items-stretch">
-          <div class="col-lg-4">
-            <div class="workflow-card h-100">
-              <div class="step-badge">01</div>
-              <h3 class="step-title">ASK</h3>
-              <p class="step-tagline">Students ask questions naturally.</p>
-              <p class="step-desc">Type your query in plain English or conversational phrasing. No rigid form fields or bureaucratic jargon required.</p>
-              <div class="step-preview-box">
-                <i class="bi bi-chat-dots-fill text-muted me-2"></i>
-                <span>"Where is the exam timetable posted?"</span>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4">
-            <div class="workflow-card h-100">
-              <div class="step-badge">02</div>
-              <h3 class="step-title">UNDERSTAND</h3>
-              <p class="step-tagline">AI identifies intent & retrieves facts.</p>
-              <p class="step-desc">Google Gemini analyzes semantic meaning, correlates the inquiry with verified university regulations, and enforces grounding rules.</p>
-              <div class="step-preview-box">
-                <i class="bi bi-cpu-fill text-primary me-2"></i>
-                <span>Category: Examinations | Grounded: True</span>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4">
-            <div class="workflow-card h-100">
-              <div class="step-badge">03</div>
-              <h3 class="step-title">GUIDE</h3>
-              <p class="step-tagline">Students receive clear, grounded answers.</p>
-              <p class="step-desc">Get an accurate response directing you to the exact faculty advisor, administrative channel, or department.</p>
-              <div class="step-preview-box">
-                <i class="bi bi-check2-circle text-success me-2"></i>
-                <span>"Published through official university channels."</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
 
-    <!-- SECTION F: INTERACTIVE LIVE DEMO (REAL CHATBOT) -->
-    <section class="chat-section py-5" id="chat-demo">
-      <div class="container-xl">
-        <div class="section-header text-center mb-4">
-          <span class="section-tag">LIVE INTERACTIVE ASSISTANT</span>
-          <h2 class="section-title">CampusCompass AI Assistant</h2>
-          <p class="section-subtitle">Connected live to the Flask backend with Google Gemini 3.8 Flash.</p>
+        <div class="d-flex flex-wrap justify-content-center gap-2 max-w-900 mx-auto">
+          <button class="prompt-pill" data-query="Whom should I contact for academic problems?">
+            <i class="bi bi-mortarboard-fill text-dark"></i>
+            <span>Whom should I contact for academic problems?</span>
+          </button>
+          <button class="prompt-pill" data-query="Where can I find the examination timetable?">
+            <i class="bi bi-journal-text text-dark"></i>
+            <span>Where can I find the examination timetable?</span>
+          </button>
+          <button class="prompt-pill" data-query="Whom should I contact for placement training?">
+            <i class="bi bi-briefcase-fill text-dark"></i>
+            <span>Whom should I contact for placement training?</span>
+          </button>
+          <button class="prompt-pill" data-query="How can I raise a hostel complaint?">
+            <i class="bi bi-building-fill-check text-dark"></i>
+            <span>How can I raise a hostel complaint?</span>
+          </button>
+          <button class="prompt-pill" data-query="What are the library timings?">
+            <i class="bi bi-book-half text-dark"></i>
+            <span>What are the library timings?</span>
+          </button>
+          <button class="prompt-pill" data-query="Tell me about Presidency University schools and location.">
+            <i class="bi bi-geo-alt-fill text-dark"></i>
+            <span>Presidency University schools & campus location</span>
+          </button>
+          <button class="prompt-pill" data-query="How do I get my student certificates?">
+            <i class="bi bi-folder2-open text-dark"></i>
+            <span>How do I get my student certificates?</span>
+          </button>
+          <button class="prompt-pill" data-query="What is the attendance requirement?">
+            <i class="bi bi-calendar-check-fill text-dark"></i>
+            <span>What is the attendance requirement?</span>
+          </button>
         </div>
+      </div>
+    </section>
+    <!-- ==================== LIME COLOR-BLOCK (#C7F284) FOR CHAT WORKSPACE ==================== -->
+    <section class="chat-workspace-section" id="chat-workspace">
+      <div class="container-xl">
         <div class="row justify-content-center">
           <div class="col-lg-10 col-xl-9">
-            <div class="chat-app-window">
-              <div class="chat-header d-flex justify-content-between align-items-center">
+            
+            <div class="chat-container-card">
+              <!-- Top bar -->
+              <div class="chat-header-bar d-flex justify-content-between align-items-center">
                 <div class="d-flex align-items-center gap-3">
-                  <div class="assistant-avatar-wrapper position-relative">
-                    <div class="assistant-avatar"><i class="bi bi-robot"></i></div>
-                    <span class="avatar-online-dot"></span>
-                  </div>
+                  <div class="chat-avatar">PU</div>
                   <div>
-                    <h5 class="chat-assistant-name m-0">CampusCompass AI Assistant</h5>
-                    <div class="chat-status-pill d-flex align-items-center gap-1">
-                      <span class="mini-pulse"></span>
-                      <span id="chatModelIndicator">Gemini 3.8 Flash Active</span>
+                    <h5 class="m-0 fw-bold">Presidency University AI Helpdesk</h5>
+                    <div class="d-flex align-items-center gap-2 small text-light mt-1">
+                      <span class="pulse-dot"></span>
+                      <span id="modelStatusPill">Gemini 3.8 Flash • Ultra-Fast Low Latency</span>
                     </div>
                   </div>
                 </div>
-                <div class="chat-actions d-flex align-items-center gap-2">
-                  <button type="button" class="btn btn-sm btn-icon" id="clearChatBtn" title="Clear conversation">
-                    <i class="bi bi-trash3"></i>
-                    <span class="d-none d-sm-inline ms-1">Clear</span>
+                <div>
+                  <button type="button" class="btn btn-sm btn-outline-light rounded-pill px-3" id="clearBtn">
+                    <i class="bi bi-trash3 me-1"></i> Clear
                   </button>
                 </div>
               </div>
 
-              <!-- Suggested Questions Chips -->
-              <div class="suggested-questions-bar p-3 border-bottom">
-                <div class="suggested-label d-flex align-items-center gap-1 mb-2">
-                  <i class="bi bi-lightbulb-fill text-warning"></i>
-                  <span>Suggested Student Questions:</span>
-                </div>
-                <div class="chips-container d-flex flex-wrap gap-2" id="suggestedChips">
-                  <button class="chip-btn" data-question="Whom should I contact for academic problems?">Academic assistance?</button>
-                  <button class="chip-btn" data-question="Where can I find the examination timetable?">Examination timetable?</button>
-                  <button class="chip-btn" data-question="Whom should I contact for placement training?">Placement training?</button>
-                  <button class="chip-btn" data-question="How can I raise a hostel complaint?">Hostel complaint?</button>
-                  <button class="chip-btn" data-question="What are the library timings?">Library timings?</button>
-                  <button class="chip-btn" data-question="How do I get my student certificates?">Student certificates?</button>
-                </div>
-              </div>
-
-              <!-- Chat Message History Feed -->
-              <div class="chat-messages-container p-4" id="chatFeed">
-                <div class="message-row assistant-row">
-                  <div class="message-avatar"><i class="bi bi-robot"></i></div>
-                  <div class="message-bubble assistant-bubble">
-                    <div class="message-meta d-flex justify-content-between align-items-center mb-1">
-                      <span class="message-sender">CampusCompass AI</span>
-                      <span class="message-time" id="welcomeTime">Just now</span>
+              <!-- Message Feed -->
+              <div class="chat-feed-box" id="chatFeed">
+                <div class="msg-row msg-assistant">
+                  <div class="bubble bubble-assistant">
+                    <div class="d-flex justify-content-between align-items-center mb-1">
+                      <strong class="small text-dark">Presidency AI Assistant</strong>
+                      <span class="small text-muted">Just now</span>
                     </div>
-                    <div class="message-text">
-                      Hello! Welcome to <strong>CampusCompass AI</strong>! I'm your intelligent campus assistant. I can help you with academics, attendance, examinations, placements, library, hostel, administration and events. What would you like to know today?
-                    </div>
-                    <div class="message-footer d-flex justify-content-between align-items-center mt-2 pt-2 border-top">
-                      <div class="d-flex align-items-center gap-2">
-                        <span class="badge bg-pastel-lavender">General</span>
-                        <span class="badge bg-light text-dark border">Verified Assistant</span>
-                      </div>
-                      <div class="message-actions d-flex gap-2">
-                        <button class="btn btn-tiny copy-btn" title="Copy response"><i class="bi bi-clipboard"></i></button>
-                      </div>
+                    <p class="m-0 text-dark">
+                      Hello! Welcome to the <strong>Presidency University AI Campus Helpdesk</strong>. 
+                      I can assist you with verified university guidance regarding academics, examinations, placements, library, hostel, administration, and university schools. How can I help you today?
+                    </p>
+                    <div class="d-flex justify-content-between align-items-center mt-2 pt-2 border-top">
+                      <span class="meta-tag">Presidency Overview</span>
+                      <button class="copy-btn" onclick="navigator.clipboard.writeText('Hello! Welcome to the Presidency University AI Campus Helpdesk.')">
+                        <i class="bi bi-clipboard me-1"></i> Copy
+                      </button>
                     </div>
                   </div>
                 </div>
               </div>
 
               <!-- Typing Indicator -->
-              <div class="typing-indicator-row d-none p-3 px-4" id="typingIndicator">
-                <div class="typing-bubble d-flex align-items-center gap-2">
-                  <span class="typing-dot"></span>
-                  <span class="typing-dot"></span>
-                  <span class="typing-dot"></span>
-                  <span class="typing-label ms-2">CampusCompass AI is thinking...</span>
-                </div>
+              <div class="d-none px-4 py-2 bg-light border-top" id="typingInd">
+                <small class="text-dark fst-italic">
+                  <i class="bi bi-arrow-repeat spin me-1"></i> Presidency AI is retrieving verified guidance...
+                </small>
               </div>
 
-              <!-- Chat Input Form -->
-              <div class="chat-input-area p-3 border-top">
-                <form id="chatForm" class="d-flex align-items-end gap-2">
-                  <div class="input-wrapper flex-grow-1 position-relative">
-                    <textarea class="form-control chat-textarea" id="chatInput" rows="1" placeholder="Ask about academics, exams, hostel, library, placements..."></textarea>
-                  </div>
-                  <button type="submit" class="btn btn-pill btn-primary-custom send-btn" id="sendBtn" title="Send message (Enter)">
-                    <i class="bi bi-send-fill"></i>
+              <!-- Input Area -->
+              <div class="chat-input-wrapper">
+                <form id="chatForm" class="d-flex align-items-center gap-2">
+                  <input type="text" class="form-control chat-box-input" id="chatInput" placeholder="Ask about faculty advisors, exam timetables, placements, hostel rules..." required>
+                  <button type="submit" class="btn btn-pill btn-black" style="padding: 12px 24px;">
+                    <span>Send</span>
+                    <i class="bi bi-arrow-up-right"></i>
                   </button>
                 </form>
-                <div class="input-footer d-flex justify-content-between align-items-center mt-2 px-1">
-                  <small class="text-muted text-xs">Press <kbd>Enter</kbd> to send, <kbd>Shift + Enter</kbd> for new line</small>
-                  <small class="text-muted text-xs" id="groundingNotice">
-                    <i class="bi bi-shield-check text-success"></i> Strictly grounded in verified campus knowledge
-                  </small>
+                <div class="d-flex justify-content-between align-items-center mt-2 px-2 small text-muted">
+                  <span>Enter to send query</span>
+                  <span><i class="bi bi-shield-check text-success"></i> Strictly Grounded in Presidency University Regulations</span>
                 </div>
               </div>
 
             </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- SECTION G: FINAL CTA -->
-    <section class="cta-section py-5">
-      <div class="container-xl">
-        <div class="cta-card p-5 text-center">
-          <div class="cta-icon-wrapper mx-auto mb-4">
-            <i class="bi bi-chat-heart-fill"></i>
-          </div>
-          <h2 class="cta-title">Your Campus Questions Deserve Smart Answers.</h2>
-          <p class="cta-description mx-auto">
-            Get the guidance you need through one intelligent conversation. Direct, factual, and 24/7.
-          </p>
-          <div class="cta-action mt-4">
-            <a href="#chat-demo" class="btn btn-pill btn-primary-custom btn-lg">
-              <span>Chat with CampusCompass AI</span>
-              <i class="bi bi-arrow-right"></i>
-            </a>
+
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ABOUT SECTION -->
-    <section class="about-section py-5" id="about">
-      <div class="container-xl">
+    <!-- ==================== PRESIDENCY UNIVERSITY OVERVIEW ==================== -->
+    <section class="py-5 bg-white" id="overview">
+      <div class="container-xl py-4">
         <div class="row align-items-center g-5">
           <div class="col-lg-6">
-            <span class="section-tag">ABOUT CAMPUSCOMPASS AI</span>
-            <h2 class="section-title">Built to Bridge Students & Campus Resources</h2>
-            <p class="text-muted">
-              Campus life should be focused on learning and growth—not navigating complicated offices or getting contradictory information. 
-              CampusCompass AI serves as a unified intelligence portal, answering student questions with precision and direct contact channels.
+            <span class="mono-eyebrow">ESTABLISHED 2013 • BENGALURU</span>
+            <h2 class="fw-bold mb-3">Presidency University</h2>
+            <p class="text-dark" style="font-size: 1.05rem;">
+              Presidency University, Bengaluru was established under Karnataka Act No. 41 of 2013 and is located on a sprawling green campus at Itgalpur, Rajanakunte, Yelahanka, Bengaluru.
             </p>
-            <div class="row g-3 mt-2">
-              <div class="col-6">
-                <div class="p-3 bg-white rounded-4 border">
-                  <h4 class="fw-bold m-0 text-primary">8 Domains</h4>
-                  <small class="text-muted">Complete campus coverage</small>
-                </div>
-              </div>
-              <div class="col-6">
-                <div class="p-3 bg-white rounded-4 border">
-                  <h4 class="fw-bold m-0 text-success">100% Grounded</h4>
-                  <small class="text-muted">No invented policies</small>
-                </div>
-              </div>
-            </div>
+            <p class="text-dark">
+              The university is dedicated to excellence in teaching and research across diverse disciplines with world-class infrastructure, industry-collaborated programs, and comprehensive student welfare support.
+            </p>
           </div>
           <div class="col-lg-6">
-            <div class="p-4 p-md-5 bg-white rounded-5 border shadow-sm">
-              <h5 class="fw-bold mb-3 d-flex align-items-center gap-2">
-                <i class="bi bi-check-all text-success fs-4"></i>
-                Official Knowledge Guidelines
-              </h5>
-              <ul class="list-unstyled d-flex flex-column gap-2 m-0 text-muted">
-                <li><i class="bi bi-arrow-right-circle text-primary me-2"></i>Academics: Consult assigned faculty advisors.</li>
-                <li><i class="bi bi-arrow-right-circle text-primary me-2"></i>Attendance: Follow university prescribed regulations.</li>
-                <li><i class="bi bi-arrow-right-circle text-primary me-2"></i>Examinations: Official notification channels.</li>
-                <li><i class="bi bi-arrow-right-circle text-primary me-2"></i>Placements: Training & Placement Department.</li>
-                <li><i class="bi bi-arrow-right-circle text-primary me-2"></i>Library: Official library timings & regulations.</li>
-                <li><i class="bi bi-arrow-right-circle text-primary me-2"></i>Hostel: Hostel Administration office.</li>
-                <li><i class="bi bi-arrow-right-circle text-primary me-2"></i>Administration: Respective office for records & certificates.</li>
-                <li><i class="bi bi-arrow-right-circle text-primary me-2"></i>Events: Official university communication feeds.</li>
-              </ul>
+            <div class="row g-3">
+              <div class="col-sm-6">
+                <div class="p-3 border rounded-4 bg-light">
+                  <h6 class="fw-bold m-0 text-dark">School of Engineering (SOE)</h6>
+                  <small class="text-muted">Industry-integrated engineering programs</small>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="p-3 border rounded-4 bg-light">
+                  <h6 class="fw-bold m-0 text-dark">School of Management (SOM)</h6>
+                  <small class="text-muted">Global business & leadership studies</small>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="p-3 border rounded-4 bg-light">
+                  <h6 class="fw-bold m-0 text-dark">School of Law (SOL)</h6>
+                  <small class="text-muted">BA LL.B, BBA LL.B & B.Com LL.B</small>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="p-3 border rounded-4 bg-light">
+                  <h6 class="fw-bold m-0 text-dark">School of Design (SOD)</h6>
+                  <small class="text-muted">Product, communication & UI/UX design</small>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="p-3 border rounded-4 bg-light">
+                  <h6 class="fw-bold m-0 text-dark">School of CS & IT (SOCSIT)</h6>
+                  <small class="text-muted">Artificial Intelligence, Data & Computing</small>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="p-3 border rounded-4 bg-light">
+                  <h6 class="fw-bold m-0 text-dark">School of Commerce (SOC)</h6>
+                  <small class="text-muted">Professional accounting & corporate finance</small>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -506,102 +264,38 @@
 
   </main>
 
-  <!-- SECTION H: FOOTER -->
-  <footer class="footer-custom pt-5 pb-4">
+  <!-- ==================== FOOTER (#0D0D0D inverse canvas) ==================== -->
+  <footer class="footer-inverse">
     <div class="container-xl">
-      <div class="row g-4 mb-5">
-        <div class="col-lg-4">
-          <div class="footer-brand d-flex align-items-center gap-2 mb-3">
-            <div class="brand-icon-wrapper">
-              <i class="bi bi-compass-fill"></i>
-            </div>
-            <span class="brand-text">CampusCompass <span class="brand-ai">AI</span></span>
+      <div class="row g-4 mb-4 align-items-center">
+        <div class="col-md-6">
+          <div class="d-flex align-items-center gap-3 mb-2">
+            <!-- White rendered logo on dark footer using brightness(0) invert(1) -->
+            <img src="/static/img/Presidency-university-logo.png" alt="Presidency University" class="footer-logo-img">
+            <span class="mono-badge" style="background: #262626; color: #FFF;">AI HELPDESK</span>
           </div>
-          <p class="footer-desc text-muted">
-            Your intelligent guide to university life. Powered by Google Gemini AI with strictly grounded authoritative campus knowledge.
+          <p class="m-0 small text-light opacity-75">
+            Official AI Campus Helpdesk • Presidency University, Bengaluru (presidencyuniversity.in)
           </p>
-          <div class="footer-tech-badges d-flex flex-wrap gap-2 mt-3">
-            <span class="badge bg-white text-dark border">Google Gemini 3.8 Flash</span>
-            <span class="badge bg-white text-dark border">Python Flask</span>
-            <span class="badge bg-white text-dark border">Bootstrap 5</span>
-          </div>
         </div>
-
-        <div class="col-6 col-lg-2">
-          <h6 class="footer-heading">Quick Links</h6>
-          <ul class="list-unstyled footer-links">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#features">Features</a></li>
-            <li><a href="#categories">Help Categories</a></li>
-            <li><a href="#how-it-works">How It Works</a></li>
-            <li><a href="#chat-demo">Campus Assistant</a></li>
-          </ul>
-        </div>
-
-        <div class="col-6 col-lg-3">
-          <h6 class="footer-heading">Help Categories</h6>
-          <ul class="list-unstyled footer-links">
-            <li><a href="#chat-demo" onclick="window.sendPredefinedQuery('Whom should I contact for academic problems?')">Academics</a></li>
-            <li><a href="#chat-demo" onclick="window.sendPredefinedQuery('What is the attendance requirement?')">Attendance</a></li>
-            <li><a href="#chat-demo" onclick="window.sendPredefinedQuery('Where can I find the examination timetable?')">Examinations</a></li>
-            <li><a href="#chat-demo" onclick="window.sendPredefinedQuery('Whom should I contact for placement training?')">Placements</a></li>
-            <li><a href="#chat-demo" onclick="window.sendPredefinedQuery('What are the library timings?')">Library</a></li>
-            <li><a href="#chat-demo" onclick="window.sendPredefinedQuery('How can I raise a hostel complaint?')">Hostel</a></li>
-            <li><a href="#chat-demo" onclick="window.sendPredefinedQuery('How do I get my student certificates?')">Administration</a></li>
-            <li><a href="#chat-demo" onclick="window.sendPredefinedQuery('Where are university event announcements posted?')">Events</a></li>
-          </ul>
-        </div>
-
-        <div class="col-lg-3">
-          <h6 class="footer-heading">Authoritative Scope</h6>
-          <p class="footer-disclaimer text-muted small">
-            <strong>Sample-Data & Grounding Notice:</strong> Responses are grounded exclusively in official university facts. 
-            CampusCompass AI never invents dates, fees, policies, or contact information. Consult official campus channels for unlisted items.
-          </p>
+        <div class="col-md-6 text-md-end">
+          <a href="#home" class="footer-link me-3">Home</a>
+          <a href="#prompts" class="footer-link me-3">Quick Test</a>
+          <a href="#chat-workspace" class="footer-link me-3">Helpdesk Chat</a>
+          <a href="#overview" class="footer-link">Schools Overview</a>
         </div>
       </div>
 
-      <div class="footer-bottom border-top pt-4 d-flex flex-wrap justify-content-between align-items-center gap-3">
-        <p class="m-0 text-muted small">
-          &copy; 2026 CampusCompass AI. All rights reserved.
+      <div class="border-top border-secondary pt-3 mt-3 d-flex flex-wrap justify-content-between align-items-center gap-2">
+        <p class="footer-disclaimer m-0">
+          <strong>Authoritative Scope Notice:</strong> Guidance is strictly grounded in verified Presidency University facts. The AI assistant never fabricates exam dates, tuition fees, phone numbers, or unverified policies.
         </p>
-        <div class="d-flex align-items-center gap-3 small text-muted">
-          <span>CampusCompass AI Assistant</span>
-          <span>&bull;</span>
-          <span>Your Campus. One Smart Assistant.</span>
-        </div>
+        <p class="small text-secondary m-0">
+          &copy; 2026 Presidency University. All rights reserved.
+        </p>
       </div>
     </div>
   </footer>
-
-  <!-- Clear Chat Confirmation Modal -->
-  <div class="modal fade" id="clearChatModal" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-sm">
-      <div class="modal-content rounded-4 border-0 shadow">
-        <div class="modal-header border-0 pb-0">
-          <h6 class="modal-title fw-bold">Clear Conversation?</h6>
-          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-        </div>
-        <div class="modal-body text-muted small">
-          This will reset your conversation history. You can start fresh anytime.
-        </div>
-        <div class="modal-footer border-0 pt-0">
-          <button type="button" class="btn btn-sm btn-light rounded-pill px-3" data-bs-dismiss="modal">Cancel</button>
-          <button type="button" class="btn btn-sm btn-danger rounded-pill px-3" id="confirmClearBtn">Clear</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Toast Notification Container -->
-  <div class="toast-container position-fixed bottom-0 end-0 p-3" style="z-index: 1100;">
-    <div id="appToast" class="toast align-items-center text-white bg-dark border-0 rounded-4" role="alert">
-      <div class="d-flex">
-        <div class="toast-body" id="toastMessage">Notification</div>
-        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button>
-      </div>
-    </div>
-  </div>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="/static/js/app.js"></script>

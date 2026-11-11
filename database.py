@@ -1,13 +1,10 @@
-"""
-CampusCompass AI - Database Service
-Supports MongoDB Atlas (optional) with automatic in-memory fallback.
-"""
-
+﻿import os
 import time
 import logging
+import threading
 from config import Config
 
-logger = logging.getLogger("CampusCompass.DB")
+logger = logging.getLogger("Presidency.DB")
 
 class Database:
     def __init__(self):
@@ -19,32 +16,31 @@ class Database:
         self.memory_feedback = []
         self._connected = False
         
-        self._init_mongo()
+        # Initialize connection in non-blocking thread so server boots instantaneously
+        threading.Thread(target=self._init_mongo, daemon=True).start()
 
     def _init_mongo(self):
         uri = Config.MONGODB_URI.strip() if Config.MONGODB_URI else ""
         if not uri:
-            logger.info("No MONGODB_URI configured. Running with in-memory session store.")
             return
 
         try:
             import pymongo
-            self.client = pymongo.MongoClient(uri, serverSelectionTimeoutMS=3000)
-            # Test connection
+            self.client = pymongo.MongoClient(uri, serverSelectionTimeoutMS=500)
             self.client.admin.command('ping')
-            self.db = self.client.get_database("campuscompass_ai")
+            self.db = self.client.get_database("presidency_campuscompass")
             self.messages_col = self.db.messages
             self.feedback_col = self.db.feedback
             self._connected = True
-            logger.info("Successfully connected to MongoDB Atlas.")
+            logger.info("Connected to MongoDB Atlas asynchronously.")
         except Exception as e:
-            logger.warning(f"MongoDB connection failed: {e}. Falling back to in-memory storage.")
+            logger.warning(f"MongoDB offline/unreachable: {e}. Running in-memory.")
             self._connected = False
 
     def is_connected(self):
         return self._connected
 
-    def save_message(self, session_id: str, role: str, content: str, category: str = "General", provider: str = "System", grounded: bool = True):
+    def save_message(self, session_id: str, role: str, content: str, category: str = "General", provider: str = "Gemini", grounded: bool = True):
         doc = {
             "session_id": session_id,
             "role": role,
@@ -56,29 +52,24 @@ class Database:
             "formatted_time": time.strftime("%Y-%m-%d %H:%M:%S")
         }
         
-        if self._connected and self.messages_col is not None:
-            try:
-                self.messages_col.insert_one(doc)
-            except Exception as e:
-                logger.error(f"Failed to persist message to MongoDB: {e}")
-                
-        # In-memory storage
+        # In-memory instant append
         if session_id not in self.memory_history:
             self.memory_history[session_id] = []
         self.memory_history[session_id].append(doc)
+
+        # Asynchronous non-blocking MongoDB write
+        if self._connected and self.messages_col is not None:
+            def _async_insert(d):
+                try:
+                    self.messages_col.insert_one(d.copy())
+                except Exception as ex:
+                    logger.debug(f"Async Mongo insert skipped: {ex}")
+            threading.Thread(target=_async_insert, args=(doc,), daemon=True).start()
+
         return doc
 
-    def get_history(self, session_id: str, limit: int = 15):
-        if self._connected and self.messages_col is not None:
-            try:
-                cursor = self.messages_col.find({"session_id": session_id}).sort("timestamp", -1).limit(limit)
-                history = list(cursor)
-                history.reverse()
-                return history
-            except Exception as e:
-                logger.error(f"Failed to fetch history from MongoDB: {e}")
-                
-        # Fallback to in-memory
+    def get_history(self, session_id: str, limit: int = 8):
+        # Fast memory return
         return self.memory_history.get(session_id, [])[-limit:]
 
     def save_feedback(self, session_id: str, message_id: str, feedback: str, query: str = "", response: str = ""):
@@ -88,25 +79,19 @@ class Database:
             "feedback": feedback,
             "query": query,
             "response": response,
-            "timestamp": time.time(),
-            "formatted_time": time.strftime("%Y-%m-%d %H:%M:%S")
+            "timestamp": time.time()
         }
-        if self._connected and self.feedback_col is not None:
-            try:
-                self.feedback_col.insert_one(doc)
-            except Exception as e:
-                logger.error(f"Failed to save feedback to MongoDB: {e}")
         self.memory_feedback.append(doc)
+        if self._connected and self.feedback_col is not None:
+            threading.Thread(target=lambda: self.feedback_col.insert_one(doc.copy()), daemon=True).start()
         return True
 
     def clear_session(self, session_id: str):
-        if self._connected and self.messages_col is not None:
-            try:
-                self.messages_col.delete_many({"session_id": session_id})
-            except Exception as e:
-                logger.error(f"Failed to clear session in MongoDB: {e}")
         if session_id in self.memory_history:
             self.memory_history[session_id] = []
+        if self._connected and self.messages_col is not None:
+            threading.Thread(target=lambda: self.messages_col.delete_many({"session_id": session_id}), daemon=True).start()
         return True
 
 db = Database()
+print("database.py updated with non-blocking asynchronous logging!")
