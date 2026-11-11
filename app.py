@@ -345,7 +345,7 @@ def get_ai_answer(message: str):
                 cfg = genai_types.GenerateContentConfig(
                     system_instruction=SYSTEM_PROMPT,
                     temperature=0.1,
-                    max_output_tokens=400,
+                    max_output_tokens=800,
                 )
                 res = genai_client.models.generate_content(
                     model=m,
