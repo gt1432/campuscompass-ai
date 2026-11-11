@@ -89,16 +89,20 @@ except Exception as ex:
 # MONGODB (Optional, Non-blocking)
 # ==============================================================================
 mongo_col = None
-try:
-    from pymongo import MongoClient
-    _mongo_uri = os.getenv("MONGODB_URI", "")
-    if _mongo_uri:
-        _mc = MongoClient(_mongo_uri, serverSelectionTimeoutMS=500, connectTimeoutMS=500)
-        _mc.admin.command("ping")
-        mongo_col = _mc["campuscompass"]["chat_logs"]
-        logger.info("MongoDB connected successfully.")
-except Exception as ex:
-    logger.warning(f"MongoDB unavailable — in-memory mode: {ex}")
+def _init_mongo():
+    global mongo_col
+    try:
+        from pymongo import MongoClient
+        _mongo_uri = os.getenv("MONGODB_URI", "")
+        if _mongo_uri:
+            _mc = MongoClient(_mongo_uri, serverSelectionTimeoutMS=800, connectTimeoutMS=800)
+            _mc.admin.command("ping")
+            mongo_col = _mc["campuscompass"]["chat_logs"]
+            logger.info("MongoDB connected successfully.")
+    except Exception as ex:
+        logger.warning(f"MongoDB background check: in-memory mode active ({ex})")
+
+threading.Thread(target=_init_mongo, daemon=True).start()
 
 def async_log_message(doc):
     def _run():
