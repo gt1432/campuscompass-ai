@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Presidency University | AI Campus Helpdesk</title>
+  <meta name="description" content="Official AI Campus Helpdesk for Presidency University, Bengaluru. Instant verified guidance for academics, examinations, placements, and campus services.">
+
+  <!-- Google Fonts: Inter & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;340;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap 5 & Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+
+  <!-- ==================== NAVBAR (56px, #FFFFFF) ==================== -->
+  <nav class="navbar navbar-expand-lg navbar-custom sticky-top" id="mainNavbar">
+    <div class="container-xl d-flex align-items-center justify-content-between h-100">
+      <a class="brand-wrapper" href="#home">
+        <img src="/static/img/Presidency-university-logo.png" alt="Presidency University Logo" class="brand-logo-img">
+        <span class="mono-badge">AI HELPDESK</span>
+      </a>
+
+      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navContent">
+        <i class="bi bi-list fs-4 text-dark"></i>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navContent">
+        <ul class="navbar-nav mx-auto mb-2 mb-lg-0 gap-1">
+          <li class="nav-item"><a class="nav-link-custom" href="#home">Home</a></li>
+          <li class="nav-item"><a class="nav-link-custom" href="#prompts">Quick Test</a></li>
+          <li class="nav-item"><a class="nav-link-custom" href="#chat-workspace">Helpdesk Chat</a></li>
+          <li class="nav-item"><a class="nav-link-custom" href="#overview">Presidency Overview</a></li>
+        </ul>
+
+        <div class="d-flex align-items-center gap-2">
+          <a href="#chat-workspace" class="btn btn-pill btn-black">
+            <span>Start Chat</span>
+            <i class="bi bi-arrow-right-short fs-5"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <!-- ==================== HERO SECTION (Two-column, #FFFFFF canvas) ==================== -->
+    <section class="hero-section" id="home">
+      <div class="container-xl">
+        <div class="row align-items-center g-5">
+          <!-- Left Column -->
+          <div class="col-lg-6">
+            <div class="mono-eyebrow">TECHNOPIA 2.0 • CAMPUS ASSISTANT</div>
+            <h1 class="hero-headline">Ask anything about Presidency University.</h1>
+            <p class="hero-subtitle">
+              Instant, verified guidance for academics, attendance regulations, examinations, placements, and campus services powered by Google Gemini.
+            </p>
+            <div class="d-flex flex-wrap gap-3">
+              <a href="#chat-workspace" class="btn btn-pill btn-black">
+                <span>Open Helpdesk →</span>
+              </a>
+              <a href="#prompts" class="btn btn-pill btn-white">
+                <span>Explore Test Prompts</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Right Column (Crisp framed image container, 16/10 aspect ratio) -->
+          <div class="col-lg-6">
+            <div class="hero-image-frame">
+              <img src="/static/img/presidency login page image.jpg" alt="Presidency University Campus Portal" class="hero-img">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== LILAC COLOR-BLOCK (#E4D4FF) FOR QUICK-TEST PROMPTS ==================== -->
+    <section class="quicktest-section" id="prompts">
+      <div class="container-xl">
+        <div class="text-center mb-4">
+          <span class="quicktest-badge">TECHNOPIA 2.0 • VERIFIED TEST SUITE</span>
+          <h2 class="quicktest-title">Quick-Test Verification Cards</h2>
+          <p class="text-dark m-0" style="font-weight: 500;">Click any card below for sub-second verified guidance from Presidency University records:</p>
+        </div>
+
+        <div class="d-flex flex-wrap justify-content-center gap-2 max-w-900 mx-auto">
+          <button class="prompt-pill" data-query="Whom should I contact for academic problems?">
+            <i class="bi bi-mortarboard-fill text-dark"></i>
+            <span>Whom should I contact for academic problems?</span>
+          </button>
+          <button class="prompt-pill" data-query="Where can I find the examination timetable?">
+            <i class="bi bi-journal-text text-dark"></i>
+            <span>Where can I find the examination timetable?</span>
+          </button>
+          <button class="prompt-pill" data-query="Whom should I contact for placement training?">
+            <i class="bi bi-briefcase-fill text-dark"></i>
+            <span>Whom should I contact for placement training?</span>
+          </button>
+          <button class="prompt-pill" data-query="How can I raise a hostel complaint?">
+            <i class="bi bi-building-fill-check text-dark"></i>
+            <span>How can I raise a hostel complaint?</span>
+          </button>
+          <button class="prompt-pill" data-query="What is the exact date of my next examination?">
+            <i class="bi bi-calendar-x text-dark"></i>
+            <span>What is the exact date of my next examination?</span>
+          </button>
+          <button class="prompt-pill" data-query="What digital resources and databases are in the Library?">
+            <i class="bi bi-book-half text-dark"></i>
+            <span>What digital resources and databases are in the Library?</span>
+          </button>
+          <button class="prompt-pill" data-query="What are the 9 academic schools and campus address?">
+            <i class="bi bi-geo-alt-fill text-dark"></i>
+            <span>What are the 9 academic schools and campus address?</span>
+          </button>
+          <button class="prompt-pill" data-query="What scholarships and official notices are available?">
+            <i class="bi bi-award-fill text-dark"></i>
+            <span>What scholarships and official notices are available?</span>
+          </button>
+        </div>
+      </div>
+    </section>
+    <!-- ==================== LIME COLOR-BLOCK (#C7F284) FOR CHAT WORKSPACE ==================== -->
+    <section class="chat-workspace-section" id="chat-workspace">
+      <div class="container-xl">
+        <div class="row justify-content-center">
+          <div class="col-lg-10 col-xl-9">
+            
+            <div class="chat-container-card">
+              <!-- Top bar -->
+              <div class="chat-header-bar d-flex justify-content-between align-items-center">
+                <div class="d-flex align-items-center gap-3">
+                  <div class="chat-avatar">PU</div>
+                  <div>
+                    <h5 class="m-0 fw-bold">Presidency University AI Helpdesk</h5>
+                    <div class="d-flex align-items-center gap-2 small text-light mt-1">
+                      <span class="pulse-dot"></span>
+                      <span id="modelStatusPill">Gemini 3.8 Flash • Ultra-Fast Low Latency</span>
+                    </div>
+                  </div>
+                </div>
+                <div>
+                  <button type="button" class="btn btn-sm btn-outline-light rounded-pill px-3" id="clearBtn">
+                    <i class="bi bi-trash3 me-1"></i> Clear
+                  </button>
+                </div>
+              </div>
+
+              <!-- Message Feed -->
+              <div class="chat-feed-box" id="chatFeed">
+                <div class="msg-row msg-assistant">
+                  <div class="bubble bubble-assistant">
+                    <div class="d-flex justify-content-between align-items-center mb-1">
+                      <strong class="small text-dark">Presidency AI Assistant</strong>
+                      <span class="small text-muted">Just now</span>
+                    </div>
+                    <p class="m-0 text-dark">
+                      Hello! Welcome to the <strong>Presidency University AI Campus Helpdesk</strong>. 
+                      I can assist you with verified university guidance regarding academics, examinations, placements, library, hostel, administration, and university schools. How can I help you today?
+                    </p>
+                    <div class="d-flex justify-content-between align-items-center mt-2 pt-2 border-top">
+                      <span class="meta-tag">Presidency Overview</span>
+                      <button class="copy-btn" onclick="navigator.clipboard.writeText('Hello! Welcome to the Presidency University AI Campus Helpdesk.')">
+                        <i class="bi bi-clipboard me-1"></i> Copy
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Typing Indicator -->
+              <div class="d-none px-4 py-2 bg-light border-top" id="typingInd">
+                <small class="text-dark fst-italic">
+                  <i class="bi bi-arrow-repeat spin me-1"></i> Presidency AI is retrieving verified guidance...
+                </small>
+              </div>
+
+              <!-- Input Area -->
+              <div class="chat-input-wrapper">
+                <form id="chatForm" class="d-flex align-items-center gap-2">
+                  <input type="text" class="form-control chat-box-input" id="chatInput" placeholder="Ask about faculty advisors, exam timetables, placements, hostel rules..." required>
+                  <button type="submit" class="btn btn-pill btn-black" style="padding: 12px 24px;">
+                    <span>Send</span>
+                    <i class="bi bi-arrow-up-right"></i>
+                  </button>
+                </form>
+                <div class="d-flex justify-content-between align-items-center mt-2 px-2 small text-muted">
+                  <span>Enter to send query</span>
+                  <span><i class="bi bi-shield-check text-success"></i> Strictly Grounded in Presidency University Regulations</span>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== PRESIDENCY UNIVERSITY OVERVIEW ==================== -->
+    <section class="py-5 bg-white" id="overview">
+      <div class="container-xl py-4">
+        <div class="row align-items-center g-5">
+          <div class="col-lg-6">
+            <span class="mono-eyebrow">ESTABLISHED 2013 • BENGALURU</span>
+            <h2 class="fw-bold mb-3">Presidency University</h2>
+            <p class="text-dark" style="font-size: 1.05rem;">
+              Presidency University, Bengaluru was established under Karnataka Act No. 41 of 2013 and is located on a sprawling green campus at Itgalpur, Rajanakunte, Yelahanka, Bengaluru.
+            </p>
+            <p class="text-dark">
+              The university is dedicated to excellence in teaching and research across diverse disciplines with world-class infrastructure, industry-collaborated programs, and comprehensive student welfare support.
+            </p>
+          </div>
+          <div class="col-lg-6">
+            <div class="row g-3">
+              <div class="col-sm-6">
+                <div class="p-3 border rounded-4 bg-light">
+                  <h6 class="fw-bold m-0 text-dark">School of Engineering (SOE)</h6>
+                  <small class="text-muted">Industry-integrated engineering programs</small>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="p-3 border rounded-4 bg-light">
+                  <h6 class="fw-bold m-0 text-dark">School of Management (SOM)</h6>
+                  <small class="text-muted">Global business & leadership studies</small>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="p-3 border rounded-4 bg-light">
+                  <h6 class="fw-bold m-0 text-dark">School of Law (SOL)</h6>
+                  <small class="text-muted">BA LL.B, BBA LL.B & B.Com LL.B</small>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="p-3 border rounded-4 bg-light">
+                  <h6 class="fw-bold m-0 text-dark">School of Design (SOD)</h6>
+                  <small class="text-muted">Product, communication & UI/UX design</small>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="p-3 border rounded-4 bg-light">
+                  <h6 class="fw-bold m-0 text-dark">School of CS & IT (SOCSIT)</h6>
+                  <small class="text-muted">Artificial Intelligence, Data & Computing</small>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="p-3 border rounded-4 bg-light">
+                  <h6 class="fw-bold m-0 text-dark">School of Commerce (SOC)</h6>
+                  <small class="text-muted">Professional accounting & corporate finance</small>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==================== FOOTER (#0D0D0D inverse canvas) ==================== -->
+  <footer class="footer-inverse">
+    <div class="container-xl">
+      <div class="row g-4 mb-4 align-items-center">
+        <div class="col-md-6">
+          <div class="d-flex align-items-center gap-3 mb-2">
+            <!-- White rendered logo on dark footer using brightness(0) invert(1) -->
+            <img src="/static/img/Presidency-university-logo.png" alt="Presidency University" class="footer-logo-img">
+            <span class="mono-badge" style="background: #262626; color: #FFF;">AI HELPDESK</span>
+          </div>
+          <p class="m-0 small text-light opacity-75">
+            Official AI Campus Helpdesk • Presidency University, Bengaluru (presidencyuniversity.in)
+          </p>
+        </div>
+        <div class="col-md-6 text-md-end">
+          <a href="#home" class="footer-link me-3">Home</a>
+          <a href="#prompts" class="footer-link me-3">Quick Test</a>
+          <a href="#chat-workspace" class="footer-link me-3">Helpdesk Chat</a>
+          <a href="#overview" class="footer-link">Schools Overview</a>
+        </div>
+      </div>
+
+      <div class="border-top border-secondary pt-3 mt-3 d-flex flex-wrap justify-content-between align-items-center gap-2">
+        <p class="footer-disclaimer m-0">
+          <strong>Authoritative Scope Notice:</strong> Guidance is strictly grounded in verified Presidency University facts. The AI assistant never fabricates exam dates, tuition fees, phone numbers, or unverified policies.
+        </p>
+        <p class="small text-secondary m-0">
+          &copy; 2026 Presidency University. All rights reserved.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="/static/js/app.js"></script>
+</body>
+</html>
